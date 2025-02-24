@@ -2,9 +2,11 @@
 name = "crew_for_deploy_2"
 version = "0.1.0"
 description = "crew_for_deploy_2 using crewAI"
-authors = ["Your Name <you@example.com>"]
+authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.13"
-dependencies = { crewai = { version = ">=0.102.0,<1.0.0", extras = ["tools"] } }
+dependencies = [
+    "crewai[tools]>=0.102.0,<1.0.0"
+]
 
 [project.scripts]
 crew_for_deploy_2 = "crew_for_deploy_2.main:run"
@@ -14,8 +16,8 @@ replay = "crew_for_deploy_2.main:replay"
 test = "crew_for_deploy_2.main:test"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.crewai]
 type = "crew"
